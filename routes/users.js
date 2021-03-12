@@ -17,10 +17,32 @@ router.post('/register', (req, res) => {
     //check requried field
 
     if (!name || !email || !password || !password2) {
-        errors.push({ msg: 'Please fill all fields' })
+        errors.push({ msg: 'Please fill all fields' });
     }
 
     //check password match
+
+    if (password !== password2) {
+        errors.push({ msg: 'Passwords do not match' });
+    }
+
+    //check password length
+
+    if (password.length < 8) {
+        errors.push({ msg: 'Please Passwords should be at least 8' });
+    }
+
+    if (errors.length > 0) {
+        res.render('register', {
+            errors,
+            name,
+            email,
+            password,
+            password2
+        });
+    } else {
+        res.send('pass');
+    }
 });
 
 
