@@ -11,8 +11,16 @@ router.get('/register', (req, res) => res.render('register'));
 
 //register handle
 router.post('/register', (req, res) => {
-    console.log(req.body);
-    res.send('Hello world');
+    const { name, email, password, password2 } = req.body;
+    let errors = [];
+
+    //check requried field
+
+    if (!name || !email || !password || !password2) {
+        errors.push({ msg: 'Please fill all fields' })
+    }
+
+    //check password match
 });
 
 
