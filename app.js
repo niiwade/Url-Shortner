@@ -30,6 +30,9 @@ app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
 
+// Static file 
+app.use('./static', express.static(__dirname + '/static'));
+
 //Bodyparser
 
 app.use(express.urlencoded({ extended: false }));
@@ -40,7 +43,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(session({
     secret: 'secret',
     resave: true,
-    saveUnintialised: true,
+    saveUninitialised: true
 }));
 
 //passport midware
