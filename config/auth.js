@@ -7,4 +7,4 @@ module.exports = {
         req.flash('error_msg', 'Please login to shorten  your urls');
         res.redirect('/users/login');
     }
-}
+};
